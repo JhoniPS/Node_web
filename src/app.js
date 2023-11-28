@@ -9,6 +9,20 @@ app.use(cors());
 
 const repositories = [];
 
+app.get("/", (request, response) => {
+  return response.send(`
+    <h1>Servidor rodando com ExpressJS</h1>
+    <h4>Rotas do Sistema</h4>
+      <ul>
+        <li>GET:<a href="http://localhost:3333/repositories">/repositories</a></li>
+        <li>POST: /repositories</li>
+        <li>PUT: /repositories/:id</li>
+        <li>DELETE: /repositories/:id</li>
+        <li>POST: /repositories/:id/like</li>
+      </ul>
+  `);
+});
+
 app.get("/repositories", (request, response) => {
   return response.json(repositories);
 });
